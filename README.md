@@ -5,7 +5,7 @@ It should be built on a machine running the same CoreOS version as the target ma
 
 ### To Build
 
-    docker build -t coreos-nvidia .    
+    docker build -t coreos-nvidia github.com/StudioPyxis/coreos-nvidia
 
 ### To Run
 
