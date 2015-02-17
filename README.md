@@ -11,6 +11,10 @@ It should be built on a machine running the same CoreOS version as the target ma
 
     docker run --privileged=true -t coreos-nvidia
 
+To confirm the module is loaded.
+
+    lsmod | grep -i nvidia
+
 #### Notes
 
 There may be a batter base image, and some post build cleanup that could be done to make the container smaller.

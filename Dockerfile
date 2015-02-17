@@ -1,6 +1,3 @@
-#Docker file to build nvidia drivers for an Ubuntu container in CoreOS
-#Container must be run in privileged mode
-#eg. > docker run --privileged=true sutdiopyxis/coreos-nvidia
 FROM ubuntu:14.04
 MAINTAINER Joshua Kolden <joshua@studiopyxis.com>
 
@@ -24,5 +21,3 @@ WORKDIR nvidia_installers
 RUN echo "./NVIDIA-Linux-x86_64-340.29.run -q -a -n -s --kernel-source-path=/usr/src/kernels/linux/ && modprobe nvidia" > install_nvidia_kernal_module
 RUN chmod +x install_nvidia_kernal_module
 CMD ["sh", "-c", "/opt/nvidia/nvidia_installers/install_nvidia_kernal_module"]
-
-# run `lsmod | grep -i nvidia` in CoreOS to confirm driver is installed.
