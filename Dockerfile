@@ -5,7 +5,7 @@ MAINTAINER Joshua Kolden <joshua@studiopyxis.com>
 RUN apt-get -y update && apt-get -y install git make dpkg-dev && mkdir -p /usr/src/kernels && mkdir -p /opt/nvidia/nvidia_installers
 
 # Downloading early so we fail early if we can't get the key ingredient
-ADD http://developer.download.nvidia.com/compute/cuda/6_5/rel/installers/cuda_6.5.14_linux_64.run /opt/nvidia/
+ADD http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.28_linux.run
 
 # Download kernel source and prepare modules
 WORKDIR /usr/src/kernels
@@ -16,8 +16,8 @@ RUN sed -i -e "s/`uname -r`+/`uname -r`/" include/generated/utsrelease.h # In ca
 
 # Nvidia drivers setup
 WORKDIR /opt/nvidia/
-RUN chmod +x cuda_6.5.14_linux_64.run && ./cuda_6.5.14_linux_64.run -extract=`pwd`/nvidia_installers
+RUN chmod +x cuda_7.0.28_linux.run && ./cuda_7.0.28_linux.run -extract=`pwd`/nvidia_installers
 WORKDIR nvidia_installers
-RUN echo "./NVIDIA-Linux-x86_64-340.29.run -q -a -n -s --kernel-source-path=/usr/src/kernels/linux/ && modprobe nvidia" > install_nvidia_kernal_module
+RUN echo "NVIDIA-Linux-x86_64-346.46.run -q -a -n -s --kernel-source-path=/usr/src/kernels/linux/ && modprobe nvidia" > install_nvidia_kernal_module
 RUN chmod +x install_nvidia_kernal_module
 CMD ["sh", "-c", "/opt/nvidia/nvidia_installers/install_nvidia_kernal_module"]
