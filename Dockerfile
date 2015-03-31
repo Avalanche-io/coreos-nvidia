@@ -5,7 +5,7 @@ MAINTAINER Joshua Kolden <joshua@studiopyxis.com>
 RUN apt-get -y update && apt-get -y install git make dpkg-dev && mkdir -p /usr/src/kernels && mkdir -p /opt/nvidia/nvidia_installers
 
 # Downloading early so we fail early if we can't get the key ingredient
-ADD http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.28_linux.run
+ADD http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.28_linux.run /opt/nvidia/
 
 # Download kernel source and prepare modules
 WORKDIR /usr/src/kernels
