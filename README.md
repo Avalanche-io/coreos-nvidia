@@ -21,4 +21,4 @@ There may be a batter base image, and some post build cleanup that could be done
 
 Currently the build uses `uname -r` to detect the running kernel version.  There maybe be a better way to do this that offers more flexibility.
 
-Also, the driver version is hard coded (`cuda_6.5.14_linux_64`), automatically finding the latest driver would be a nice improvement.
+Also, the driver version is hard coded (`cuda_7.0.28_linux`), automatically finding the latest driver would be a nice improvement.
