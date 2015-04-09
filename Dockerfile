@@ -14,7 +14,7 @@ RUN wget -P /opt/nvidia http://us.download.nvidia.com/XFree86/Linux-x86_64/346.4
 # Download kernel source and prepare modules
 WORKDIR /usr/src/kernels
 #RUN git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git linux
-RUN git clone https://github.com/coreos/linux.git
+RUN git clone git clone https://github.com/coreos/linux.git
 WORKDIR linux
 RUN git checkout remotes/origin/coreos/v`uname -r` && zcat /proc/config.gz > .config && make modules_prepare
 RUN sed -i -e "s/`uname -r`+/`uname -r`/" include/generated/utsrelease.h # In case a '+' was added
