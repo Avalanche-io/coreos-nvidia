@@ -3,13 +3,13 @@ MAINTAINER Matthew Hook <hookenz@gmail.com>
 
 # Setup environment
 RUN apt-get -y update && apt-get -y install \
-      wget git make dpkg-dev && \
+    wget git make dpkg-dev && \
     mkdir -p /usr/src/kernels && \
     mkdir -p /opt/nvidia && \
     apt-get autoremove && apt-get clean
 
 # Downloading early so we fail early if we can't get the key ingredient
-RUN wget -P /opt/nvidia http://us.download.nvidia.com/XFree86/Linux-x86_64/346.47/NVIDIA-Linux-x86_64-346.47.run
+RUN wget -P /opt/nvidia http://us.download.nvidia.com/XFree86/Linux-x86_64/346.72/NVIDIA-Linux-x86_64-346.72.run
 
 # Download kernel source and prepare modules
 WORKDIR /usr/src/kernels
@@ -20,7 +20,7 @@ RUN sed -i -e "s/`uname -r`+/`uname -r`/" include/generated/utsrelease.h # In ca
 
 # Nvidia drivers setup
 WORKDIR /opt/nvidia
-RUN echo "./NVIDIA-Linux-x86_64-346.47.run -q -a -n -s --kernel-source-path=/usr/src/kernels/linux/ && modprobe nvidia" >> install_kernel_module && \
-    chmod +x install_kernel_module
+RUN echo "./NVIDIA-Linux-x86_64-346.72.run -q -a -n -s --kernel-source-path=/usr/src/kernels/linux/ && modprobe nvidia" >> install_kernel_module && \
+    chmod +x NVIDIA-Linux-x86_64-346.72.run install_kernel_module
 
 CMD ["/opt/nvidia/install_kernel_module"]
