@@ -2,7 +2,7 @@ FROM ubuntu:14.10
 MAINTAINER Matthew Hook <hookenz@gmail.com>
 
 # Setup environment
-RUN apt-get -y update && apt-get -y install build-essential \
+RUN apt-get -y update && apt-get -y install gcc-4.8 \
     wget git make dpkg-dev && \
     mkdir -p /usr/src/kernels && \
     mkdir -p /opt/nvidia && \
