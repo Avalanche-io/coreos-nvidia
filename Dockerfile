@@ -1,8 +1,8 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.10
 MAINTAINER Matthew Hook <hookenz@gmail.com>
 
 # Setup environment
-RUN apt-get -y update && apt-get -y install \
+RUN apt-get -y update && apt-get -y install build-essential \
     wget git make dpkg-dev && \
     mkdir -p /usr/src/kernels && \
     mkdir -p /opt/nvidia && \
