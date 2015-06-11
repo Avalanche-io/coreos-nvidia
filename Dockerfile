@@ -1,4 +1,4 @@
-FROM ubuntu:14.10
+FROM ubuntu:15.04
 MAINTAINER Matthew Hook <hookenz@gmail.com>
 
 # Setup environment
