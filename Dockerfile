@@ -1,5 +1,5 @@
 FROM ubuntu:15.04
-MAINTAINER Matthew Hook <hookenz@gmail.com>
+MAINTAINER Joshua Kolden <joshua@studiopyxis.com>
 
 # Setup environment
 RUN apt-get -y update && apt-get -y install gcc-4.8 \
