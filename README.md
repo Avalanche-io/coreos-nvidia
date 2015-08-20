@@ -5,7 +5,6 @@ It should be built on a machine running the same CoreOS (actually 681.x.x) versi
 
 Note: It does not install CUDA.
 
-Based on: https://github.com/StudioPyxis/coreos-nvidia/blob/master/Dockerfile by Joshua Kolden.
 ### To Build
 
     docker build -t coreos-nvidia github.com/hookenz/coreos-nvidia
